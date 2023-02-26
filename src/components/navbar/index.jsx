@@ -1,10 +1,11 @@
 import React from "react";
 import { Container, Wrapper } from "./style";
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <Container>
       <Wrapper>Navbar</Wrapper>
     </Container>
   );
 };
+export default Navbar;
