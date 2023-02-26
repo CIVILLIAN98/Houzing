@@ -1,5 +1,10 @@
 import React from "react";
+import { Container, Wrapper } from "./style";
 
 export const Navbar = () => {
-  return <div>Navbar</div>;
+  return (
+    <Container>
+      <Wrapper>Navbar</Wrapper>
+    </Container>
+  );
 };
