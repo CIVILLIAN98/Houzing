@@ -4,7 +4,6 @@ body {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 200;
-  background-color: red;
 }
 
 * {
@@ -16,4 +15,5 @@ body {
   --colorPrimary: #0d263b;
   --colorSecondary: #696969;
   --backgroundPrimary: #0061df;
+  --padding: 0 131px;
 }
