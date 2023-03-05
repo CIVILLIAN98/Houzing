@@ -37,15 +37,19 @@ const Container = styled.button`
   min-width: 120px;
   height: 44px;
   padding: 12px 40px;
-  border: 1px solid #ffffff;
   border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 20px;
   ${GetType}
-  height: auto;
+
   :active {
     transform: scale(0.9);
   }
   height: ${({ height }) => (height ? `${height}` : "44px")};
-  width: ${({ width }) => (width ? `${width}` : "128px")};
+  width: ${({ width }) => (width ? `${width}` : "131px")};
 `;
 
 export { Container };

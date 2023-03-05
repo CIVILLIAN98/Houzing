@@ -6,9 +6,11 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 const Main = styled.div`
   width: 100%;
+  margin: 0 auto;
   background-color: var(--backgroundPrimary);
 `;
 const Wrapper = styled.div`
@@ -27,6 +29,7 @@ const Section = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   cursor: ${({ logo }) => logo && "pointer"};
   .active {
     transform: scale(1.3);
