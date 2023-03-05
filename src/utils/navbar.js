@@ -28,4 +28,12 @@ export const navbar = [
     private: false,
     hidden: false,
   },
+  {
+    id: useUniqueID,
+    title: "Login",
+    element: <h1>Login</h1>,
+    path: "/login",
+    private: false,
+    hidden: true,
+  },
 ];

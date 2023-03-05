@@ -1,6 +1,8 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
+import Filter from "../filter";
+import Button from "../generics/Button";
 
 import { Container, Main, Wrapper, Section, Link } from "./style";
 
@@ -17,22 +19,26 @@ const Navbar = () => {
           <Section>
             {navbar.map((link, index) => {
               return (
-                <Link
-                  className={({ isActive }) => isActive && "active"}
-                  key={index}
-                  to={link.path}
-                >
-                  {link.title}
-                </Link>
+                !link.hidden && (
+                  <Link
+                    className={({ isActive }) => isActive && "active"}
+                    key={index}
+                    to={link.path}
+                  >
+                    {link.title}
+                  </Link>
+                )
               );
             })}
           </Section>
           <Section>
-            <button>Login</button>
+            <Button onClick={() => navigate("/login")} type={"dark"}>
+              Login
+            </Button>
           </Section>
         </Wrapper>
       </Main>
-
+      <Filter />
       <Outlet />
     </Container>
   );
