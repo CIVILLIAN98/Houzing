@@ -17,3 +17,19 @@ body {
   --backgroundPrimary: #0d263b;
   --padding: 0 131px;
 }
+
+.Riot {
+  top: 100px !important;
+  transform: translate(-50, -50) !important;
+}
+input {
+  border-radius: 2px;
+  width: 200px;
+  height: 44px;
+  outline: none;
+  color: black;
+  line-height: 20px;
+  font-size: 14px;
+  border: 1px solid #e6e9ec;
+  padding: 0 44px;
+}
