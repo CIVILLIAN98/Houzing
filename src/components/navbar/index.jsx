@@ -3,6 +3,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
 import Filter from "../filter";
 import Button from "../generics/Button";
+import MainCarousel from "../main Carousel";
 
 import { Container, Main, Wrapper, Section, Link } from "./style";
 
@@ -33,7 +34,7 @@ const Navbar = () => {
           </Section>
           <Section>
             <Button onClick={() => navigate("/login")} type={"dark"}>
-              Login
+              Log in
             </Button>
           </Section>
         </Wrapper>

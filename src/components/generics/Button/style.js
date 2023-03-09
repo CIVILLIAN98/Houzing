@@ -44,7 +44,8 @@ const Container = styled.button`
   font-size: 14px;
   line-height: 20px;
   ${GetType}
-
+  margin: ${({ margin }) => (margin ? `${margin}px` : "0")};
+  margin-top: ${({ mt }) => (mt ? `${mt}px` : 0)};
   :active {
     transform: scale(0.9);
   }

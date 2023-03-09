@@ -49,4 +49,7 @@ const Link = styled(NavLink)`
   text-decoration: none;
   padding: 0 32px;
 `;
-export { Container, Wrapper, Section, Link, Main };
+const CarouselContainer = styled.div`
+  width: 100%;
+`;
+export { Container, Wrapper, Section, Link, Main, CarouselContainer };
