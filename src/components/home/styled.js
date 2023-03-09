@@ -6,4 +6,5 @@ const Container = styled.div`
   text-align: center;
 `;
 
-export { Container };
+const Wrapper = styled.div``;
+export { Container, Wrapper };

@@ -1,10 +1,12 @@
 import React from "react";
-import { Container } from "./styled";
+import { Container, Wrapper } from "./styled";
 
 const Home = () => {
   return (
     <Container>
-      <h1>FUCKING HOME</h1>
+      <Wrapper>
+        <h1>FUCKING HOME</h1>
+      </Wrapper>
     </Container>
   );
 };
