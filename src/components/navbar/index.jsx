@@ -40,7 +40,6 @@ const Navbar = () => {
         </Wrapper>
       </Main>
       <Filter />
-      <MainCarousel />
       <Outlet />
     </Container>
   );
