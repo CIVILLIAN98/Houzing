@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Button from "../generics/Button";
 import Input from "../generics/input";
-import { Container, Icons, Advanced, Section } from "./styled";
+import { Container, Icons, AdvancedCon, Advanced, Section } from "./styled";
 import { makeStyles } from "@material-ui/core/styles";
 import Popper from "@material-ui/core/Popper";
 import Grid from "@material-ui/core/Grid";
@@ -51,27 +51,29 @@ const Filter = () => {
         transition
       >
         {() => (
-          <Advanced>
-            <Advanced.Header>Address</Advanced.Header>
-            <Section>
-              <input placeholder="Country" ref={Countryref} />
-              <input placeholder="Region" ref={Regionref} />
-              <input placeholder="City" ref={Cityref} />
-              <input placeholder="Zip code" ref={Zipref} />
-            </Section>
-            <Advanced.Header>Apartment info</Advanced.Header>
-            <Section>
-              <input ref={Roomref} placeholder="Rooms" />
-              <input ref={Sizeref} placeholder="Size" />
-              <input ref={Sortref} placeholder="Sort" />
-            </Section>
-            <Advanced.Header>Price</Advanced.Header>
-            <Section>
-              <input ref={Minref} placeholder="Min price" />
-              <input ref={Maxref} placeholder="Max price" />
-            </Section>
+          <AdvancedCon>
+            <Advanced>
+              <Advanced.Header>Address</Advanced.Header>
+              <Section>
+                <input placeholder="Country" ref={Countryref} />
+                <input placeholder="Region" ref={Regionref} />
+                <input placeholder="City" ref={Cityref} />
+                <input placeholder="Zip code" ref={Zipref} />
+              </Section>
+              <Advanced.Header>Apartment info</Advanced.Header>
+              <Section>
+                <input ref={Roomref} placeholder="Rooms" />
+                <input ref={Sizeref} placeholder="Size" />
+                <input ref={Sortref} placeholder="Sort" />
+              </Section>
+              <Advanced.Header>Price</Advanced.Header>
+              <Section>
+                <input ref={Minref} placeholder="Min price" />
+                <input ref={Maxref} placeholder="Max price" />
+              </Section>
+            </Advanced>
             <Advanced.Footer></Advanced.Footer>
-          </Advanced>
+          </AdvancedCon>
         )}
       </Popper>
       <Grid item>
@@ -83,6 +85,9 @@ const Filter = () => {
         </Button>
       </Grid>
       <Button width="180" type="blue">
+        <Icons>
+          <Icons.Search />
+        </Icons>
         Search
       </Button>
     </Container>
