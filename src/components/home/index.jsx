@@ -8,7 +8,7 @@ const Home = () => {
     <Container>
       <MainCarousel />
       <Wrapper>
-        <HouseCard img={house1} alt={"house1"} />
+        <HouseCard />
       </Wrapper>
     </Container>
   );
