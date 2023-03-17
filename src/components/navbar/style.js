@@ -12,6 +12,7 @@ const Main = styled.div`
   width: 100%;
   margin: 0 auto;
   background-color: var(--backgroundPrimary);
+  margin-bottom: 30px;
 `;
 const Wrapper = styled.div`
   max-width: 1440px;
