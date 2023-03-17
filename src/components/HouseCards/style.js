@@ -4,7 +4,7 @@ import { ReactComponent as bath } from "../../assets/icons/bath.svg";
 import { ReactComponent as car } from "../../assets/icons/car.svg";
 import { ReactComponent as ruler } from "../../assets/icons/ruler.svg";
 import { ReactComponent as resize } from "../../assets/icons/resize.svg";
-import { ReactComponent as like } from "../../assets/icons/like.svg";
+import { ReactComponent as like } from "../../assets/icons/love.svg";
 const Container = styled.div`
   width: 380px;
   height: 429px;
@@ -97,14 +97,16 @@ const Ruler = styled(ruler)`
   }
 `;
 const Like = styled(like)`
-  border-radius: 50%;
-  & path {
-    fill: red;
-  }
   cursor: pointer;
   :active {
     transform: scale(0.8);
   }
+`;
+Like.Con = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 `;
 const Resize = styled(resize)`
   cursor: pointer;
@@ -143,7 +145,8 @@ Container.RealPrice = styled.p`
 Container.FooterIcons = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
   width: 70px;
   height: 35px;
 `;

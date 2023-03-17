@@ -67,12 +67,16 @@ const HouseCard = ({
         </Container.FooterPrice>
         <Container.FooterIcons>
           <Resize />
-          <Like
+          <Like.Con
             onClick={() => changestyle()}
             style={{
-              background: !like ? "white" : "red",
+              width: "38px",
+              height: "38px",
+              background: !like ? "#F6F8F9" : "red",
             }}
-          />
+          >
+            <Like />
+          </Like.Con>
         </Container.FooterIcons>
       </Container.Footer>
     </Container>
