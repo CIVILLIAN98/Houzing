@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.feb56356.css",
+    "main.js": "/static/js/main.df8d7f6c.js",
+    "static/media/house2.png": "/static/media/house2.55cbbaad0fc81d32814a.png",
+    "static/media/house1.png": "/static/media/house1.3c773e9c8e7f2cc75138.png",
+    "static/media/noimg.jpeg": "/static/media/noimg.fe8b8cd8275447e5ce04.jpeg",
+    "static/media/car.svg": "/static/media/car.396f030e40fc5fbbe48d43a81240a630.svg",
+    "static/media/setting.svg": "/static/media/setting.10685e06e4b2ecfc90ba92a59151f43d.svg",
+    "static/media/bath.svg": "/static/media/bath.3fae1dda764be06d112ca451d8d60ab2.svg",
+    "static/media/bed.svg": "/static/media/bed.e2700d04f3e0ad4b2c46b54864dbc1b6.svg",
+    "static/media/ruler.svg": "/static/media/ruler.4297d966053afd766bf32f01c5afeeec.svg",
+    "static/media/houses.svg": "/static/media/houses.fe29d439fa61ee5360cdfa97e72df836.svg",
+    "static/media/logo.svg": "/static/media/logo.26569cabd7f0c670fcb4d8624a72929e.svg",
+    "static/media/resize.svg": "/static/media/resize.aee464685c2bf65574c03cf97de74e06.svg",
+    "static/media/love.svg": "/static/media/love.100738fe552ea16e772c3737eded8285.svg",
+    "static/media/search.svg": "/static/media/search.e3fb35f4dfee09982aead3c133d7fb94.svg",
+    "static/media/arrow.svg": "/static/media/arrow.d05f4416009959b4867bea1cc251e758.svg",
+    "index.html": "/index.html",
+    "main.feb56356.css.map": "/static/css/main.feb56356.css.map",
+    "main.df8d7f6c.js.map": "/static/js/main.df8d7f6c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.feb56356.css",
+    "static/js/main.df8d7f6c.js"
+  ]
+}

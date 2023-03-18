@@ -12,6 +12,7 @@ const Container = styled.div`
   position: relative;
 `;
 
+
 const Icons = styled.div``;
 Icons.Houses = styled(houses)`
   margin-right: 8px;
