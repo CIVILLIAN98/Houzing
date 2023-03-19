@@ -38,6 +38,11 @@ Advanced.Footer = styled.div`
   height: 84px;
   background: #f6f8f9;
   border-radius: 0px 0px 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 20px 30px;
+  gap: 20px;
 `;
 const Section = styled.div`
   display: flex;

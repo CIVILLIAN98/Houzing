@@ -32,7 +32,7 @@ const Arrow = styled(arrow)`
 `;
 const Img = styled.img`
   width: 100%;
-  height: 571px;
+  height: 571px !important;
 `;
 
 const Blur = styled.div`
