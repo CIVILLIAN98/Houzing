@@ -5,6 +5,9 @@ import { Container, Icons, AdvancedCon, Advanced, Section } from "./styled";
 import { makeStyles } from "@material-ui/core/styles";
 import Popper from "@material-ui/core/Popper";
 import Grid from "@material-ui/core/Grid";
+import { uzeReplace } from "../../hooks/useReplace";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useSearch } from "../../hooks/useSearch";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,11 +17,15 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
 }));
-const Filter = () => {
+const Filter = (e) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
   const [placement, setPlacement] = React.useState();
   const classes = useStyles();
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const query = useSearch();
 
   const handleClick = (newPlacement) => (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,6 +43,11 @@ const Filter = () => {
   const Sortref = useRef();
   const Minref = useRef();
   const Maxref = useRef();
+  const onchange = ({ target: { value, name } }) => {
+    navigate(`${location.pathname}${uzeReplace(name, value)}`);
+    console.log(name, value);
+  };
+  console.log(query.get("country"), "query");
   return (
     <Container className={classes.root}>
       <Input
@@ -55,10 +67,34 @@ const Filter = () => {
             <Advanced>
               <Advanced.Header>Address</Advanced.Header>
               <Section>
-                <input placeholder="Country" ref={Countryref} />
-                <input placeholder="Region" ref={Regionref} />
-                <input placeholder="City" ref={Cityref} />
-                <input placeholder="Zip code" ref={Zipref} />
+                <input
+                  defaultValue={"country"}
+                  onChange={onchange}
+                  name="country"
+                  placeholder="Country"
+                  ref={Countryref}
+                />
+                <input
+                  defaultValue={"region"}
+                  onChange={onchange}
+                  name="region"
+                  placeholder="Region"
+                  ref={Regionref}
+                />
+                <input
+                  defaultValue={"city"}
+                  onChange={onchange}
+                  name="city"
+                  placeholder="City"
+                  ref={Cityref}
+                />
+                <input
+                  defaultValue={"zip_code"}
+                  onChange={onchange}
+                  name="zip_code"
+                  placeholder="Zip code"
+                  ref={Zipref}
+                />
               </Section>
               <Advanced.Header>Apartment info</Advanced.Header>
               <Section>
@@ -72,7 +108,10 @@ const Filter = () => {
                 <input ref={Maxref} placeholder="Max price" />
               </Section>
             </Advanced>
-            <Advanced.Footer></Advanced.Footer>
+            <Advanced.Footer>
+              <Button type="light">Cancel</Button>{" "}
+              <Button type="blue">Submit</Button>
+            </Advanced.Footer>
           </AdvancedCon>
         )}
       </Popper>

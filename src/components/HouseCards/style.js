@@ -8,7 +8,7 @@ import { ReactComponent as like } from "../../assets/icons/love.svg";
 const Container = styled.div`
   width: 380px;
   height: 429px;
-  margin: 100px auto;
+
   background: #ffffff;
   border: 1px solid #e6e9ec;
   border-radius: 3px;
@@ -48,6 +48,9 @@ Container.Title = styled.h6`
   font-size: 16px;
   line-height: 24px;
   color: #0d263b;
+  white-space: nowrap;
+  display: flex;
+  overflow: hidden;
 `;
 Container.Subtitle = styled.p`
   font-weight: 400;

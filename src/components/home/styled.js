@@ -4,7 +4,6 @@ const Container = styled.div`
   padding: 0;
   max-width: 1440px;
   width: 100%;
-  height: 1200px;
   display: flex;
   align-items: center;
   justify-content: center;

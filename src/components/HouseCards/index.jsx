@@ -6,17 +6,18 @@ import { useState } from "react";
 
 // onclick = "document.getElementById('id1').style.color = 'red'";
 
-const HouseCard = ({
-  img,
-  alt,
-  user,
-  title,
-  subtitle,
-  bed,
-  bath,
-  garage,
-  totalarea,
-}) => {
+const HouseCard = ({ data }) => {
+  const {
+    salePrice,
+    price,
+    city,
+    country,
+    description,
+    houseDetails,
+    address,
+    attachments,
+  } = data;
+  console.log(data);
   const [like, setLike] = useState(false);
 
   const changestyle = () => {
@@ -27,43 +28,49 @@ const HouseCard = ({
   return (
     <Container>
       <Container.ImgCon>
-        <Container.Img src={img || noimage} alt={alt} />
+        <Container.Img src={attachments[0]?.imgPath || noimage} />
       </Container.ImgCon>
       <Container.Body>
-        <Container.Ava src={user || nouser} alt="" width={38} height={38} />
+        <Container.Ava src={nouser} alt="" width={38} height={38} />
         <Container.Texts>
           <Container.Title>
-            {title || "New Apartment Nice Wiew"}
+            {city},{country},{description}
           </Container.Title>
           <Container.Subtitle>
-            {subtitle || "Quincy St, Brooklyn, NY, USA"}
+            {address || "Quincy St, Brooklyn, NY, USA"}
           </Container.Subtitle>
         </Container.Texts>
         <Container.Icons>
           <Container.IconCon>
             <Bed />
-            <Container.IconText>{`${bed || 4}`} Beds</Container.IconText>
+            <Container.IconText>
+              {`${houseDetails.beds || 4}`} Beds
+            </Container.IconText>
           </Container.IconCon>
           <Container.IconCon>
             <Bath />
-            <Container.IconText>{`${bath || 5}`} Baths</Container.IconText>
+            <Container.IconText>
+              {`${houseDetails.bath || 5}`} Baths
+            </Container.IconText>
           </Container.IconCon>
           <Container.IconCon>
             <Car />
-            <Container.IconText>{`${garage || 1}`} Garage</Container.IconText>
+            <Container.IconText>
+              {`${houseDetails.garage || 1}`} Garage
+            </Container.IconText>
           </Container.IconCon>
           <Container.IconCon>
             <Ruler />
             <Container.IconText>
-              {`${totalarea || 1200}`} Sq Ft
+              {`${houseDetails.area || 1200}`} Sq Ft
             </Container.IconText>
           </Container.IconCon>
         </Container.Icons>
       </Container.Body>
       <Container.Footer>
         <Container.FooterPrice>
-          <Container.FalsePrice>$2,800/mo</Container.FalsePrice>
-          <Container.RealPrice>$7,500/mo</Container.RealPrice>
+          <Container.FalsePrice>${salePrice || 0}/mo</Container.FalsePrice>
+          <Container.RealPrice>${price || 0}/mo</Container.RealPrice>
         </Container.FooterPrice>
         <Container.FooterIcons>
           <Resize />
