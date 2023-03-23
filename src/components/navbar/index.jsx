@@ -4,7 +4,7 @@ import { navbar } from "../../utils/navbar";
 import Button from "../generics/Button";
 
 import { Container, Main, Wrapper, Section, Link } from "./style";
-import Filter from "../Filter";
+import Filter from "../filter/index";
 
 const Navbar = () => {
   const navigate = useNavigate();
