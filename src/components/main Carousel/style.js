@@ -5,7 +5,6 @@ import { ReactComponent as bath } from "../../assets/icons/bath.svg";
 import { ReactComponent as car } from "../../assets/icons/car.svg";
 import { ReactComponent as ruler } from "../../assets/icons/ruler.svg";
 const Container = styled.div`
-  max-width: 1440px;
   width: 100%;
   height: 571px !important;
   position: relative;

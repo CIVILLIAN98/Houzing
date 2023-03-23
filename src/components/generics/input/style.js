@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: ${({ width }) => (width ? `${width}px` : "100%")};
+  width: ${({ width }) => (!width ? `${width}px` : "100%")};
 `;
 const Icon = styled.div`
   position: absolute;

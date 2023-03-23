@@ -4,5 +4,6 @@ export const uzeReplace = (query, value) => {
   if (!value && value !== 0) {
     url.searchParams.delete(query);
   }
+
   return url.search;
 };

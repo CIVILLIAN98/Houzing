@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as logo } from "../../assets/icons/logo.svg";
 const Container = styled.div`
+  /* max-width: 1440px; */
   display: flex;
   flex-direction: column;
   align-items: center;

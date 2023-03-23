@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 const Conatiner = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 380px));
+  grid-auto-flow: row;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
   width: 100%;
   padding: var(--padding);
-  gap: 10px;
+  grid-gap: 10px;
   max-width: 1440px;
+  margin: auto;
 `;
 export { Conatiner };
