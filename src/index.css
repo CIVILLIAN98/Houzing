@@ -35,3 +35,8 @@ input {
 .dLRzBo {
   height: 100% !important;
 }
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  font-size: 22px !important;
+}

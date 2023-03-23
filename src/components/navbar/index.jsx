@@ -6,6 +6,7 @@ import Button from "../generics/Button";
 import { Container, Main, Wrapper, Section, Link } from "./style";
 import Filter from "../filter/index";
 
+
 const Navbar = () => {
   const navigate = useNavigate();
   return (
