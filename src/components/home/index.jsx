@@ -1,17 +1,14 @@
 import React from "react";
+import CategoryCarousel from "../Category_carousel";
 
-import CategoryCard from "../CategoryCard ";
-import HouseCard from "../HouseCards";
 import MainCarousel from "../main Carousel";
-
 import { Container } from "./styled";
 
 const Home = () => {
   return (
     <Container>
       <MainCarousel />
-      <HouseCard />
-      <CategoryCard />
+      <CategoryCarousel />
     </Container>
   );
 };
