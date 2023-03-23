@@ -1,4 +1,9 @@
 import React from "react";
-import Properties from "../../components/properties";
-
-export const Propertiespage = () => <Properties />;
+const Properties = React.lazy(() =>
+  import("../../components/properties/index")
+);
+export const Propertiespage = () => (
+  <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+    <Properties />
+  </React.Suspense>
+);

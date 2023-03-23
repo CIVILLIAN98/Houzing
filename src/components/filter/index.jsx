@@ -1,133 +1,125 @@
+import { Dropdown } from "antd";
 import React, { useRef } from "react";
-import Button from "../generics/Button";
-import Input from "../generics/input";
-import { Container, Icons, AdvancedCon, Advanced, Section } from "./styled";
-import { makeStyles } from "@material-ui/core/styles";
-import Popper from "@material-ui/core/Popper";
-import Grid from "@material-ui/core/Grid";
+import { Container, Icons, MenuWrapper, Section } from "./style";
 import { uzeReplace } from "../../hooks/useReplace";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useSearch } from "../../hooks/useSearch";
+import { useNavigate, useLocation } from "react-router-dom";
+// import { useSearch } from "../../hooks/useSearch";
+import Input from "../generics/input";
+import Button from "../generics/Button";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: 500,
-  },
-  typography: {
-    padding: theme.spacing(2),
-  },
-}));
-const Filter = (e) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
-  const [placement, setPlacement] = React.useState();
-  const classes = useStyles();
-
+export const Filter = (e) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const query = useSearch();
+  // const query = useSearch();
 
-  const handleClick = (newPlacement) => (event) => {
-    setAnchorEl(event.currentTarget);
-    setOpen((prev) => placement !== newPlacement || !prev);
-    setPlacement(newPlacement);
-  };
-
-  const Countryref = useRef();
-  const Regionref = useRef();
-  const Cityref = useRef();
-  const Zipref = useRef();
-
-  const Roomref = useRef();
+  const countryRef = useRef();
+  const regionRef = useRef();
+  const cityRef = useRef();
+  const zipRef = useRef();
+  const roomsRef = useRef();
   const Sizeref = useRef();
   const Sortref = useRef();
-  const Minref = useRef();
-  const Maxref = useRef();
-  const onchange = ({ target: { value, name } }) => {
-    navigate(`${location.pathname}${uzeReplace(name, value)}`);
-    console.log(name, value);
-  };
-  console.log(query.get("country"), "query");
-  return (
-    <Container className={classes.root}>
-      <Input
-        icon={<Icons.Houses />}
-        placeholder="Enter an address, neighborhood, city, or ZIP code"
-      />
+  const minPriceRef = useRef();
+  const maxPriceRef = useRef();
 
-      <Popper
-        className="Riot"
-        open={open}
-        anchorEl={anchorEl}
-        placement={placement}
-        transition
+  const onChange = ({ target: { name, value } }) => {
+    navigate(`${location.pathname}${uzeReplace(name, value)}`);
+  };
+
+  const menu = (
+    <MenuWrapper>
+      <h1 className="subTitle">Address</h1>
+      <Section>
+        <Input
+          width={200}
+          onChange={onChange}
+          ref={countryRef}
+          name="country"
+          placeholder="Country"
+        />
+        <Input
+          width={200}
+          onChange={onChange}
+          ref={regionRef}
+          name="region"
+          placeholder="Region"
+        />
+        <Input
+          width={200}
+          onChange={onChange}
+          ref={cityRef}
+          name="address"
+          placeholder="City"
+        />
+        <Input
+          width={200}
+          onChange={onChange}
+          name="zip_code"
+          ref={zipRef}
+          placeholder="Zip Code"
+        />
+      </Section>
+      <h1 className="subTitle">Apartment info</h1>
+      <Section>
+        <Input
+          width={200}
+          name="room"
+          onChange={onChange}
+          ref={roomsRef}
+          placeholder="Rooms"
+        />
+        <Input width={200} ref={Sizeref} placeholder="Size" />
+        <Input width={200} ref={Sortref} placeholder="Sort" />
+      </Section>
+      <h1 className="subTitle">Price</h1>
+      <Section>
+        <Input
+          width={200}
+          onChange={onChange}
+          name="min_price"
+          ref={minPriceRef}
+          placeholder="Min price"
+        />
+        <Input
+          width={200}
+          onChange={onChange}
+          name="max_price"
+          ref={maxPriceRef}
+          placeholder="Max price"
+        />
+      </Section>
+    </MenuWrapper>
+  );
+
+  return (
+    <Container>
+      <div style={{ width: "100%" }}>
+        <Input
+          icon={<Icons.Houses />}
+          placeholder={"Enter an address, neighborhood, city, or ZIP code"}
+        />
+      </div>
+
+      <Dropdown
+        overlay={menu}
+        placement="bottomRight"
+        arrow={{ pointAtCenter: true }}
+        trigger="click"
       >
-        {() => (
-          <AdvancedCon>
-            <Advanced>
-              <Advanced.Header>Address</Advanced.Header>
-              <Section>
-                <input
-                  defaultValue={"country"}
-                  onChange={onchange}
-                  name="country"
-                  placeholder="Country"
-                  ref={Countryref}
-                />
-                <input
-                  defaultValue={"region"}
-                  onChange={onchange}
-                  name="region"
-                  placeholder="Region"
-                  ref={Regionref}
-                />
-                <input
-                  defaultValue={"city"}
-                  onChange={onchange}
-                  name="city"
-                  placeholder="City"
-                  ref={Cityref}
-                />
-                <input
-                  defaultValue={"zip_code"}
-                  onChange={onchange}
-                  name="zip_code"
-                  placeholder="Zip code"
-                  ref={Zipref}
-                />
-              </Section>
-              <Advanced.Header>Apartment info</Advanced.Header>
-              <Section>
-                <input ref={Roomref} placeholder="Rooms" />
-                <input ref={Sizeref} placeholder="Size" />
-                <input ref={Sortref} placeholder="Sort" />
-              </Section>
-              <Advanced.Header>Price</Advanced.Header>
-              <Section>
-                <input ref={Minref} placeholder="Min price" />
-                <input ref={Maxref} placeholder="Max price" />
-              </Section>
-            </Advanced>
-            <Advanced.Footer>
-              <Button type="light">Cancel</Button>{" "}
-              <Button type="blue">Submit</Button>
-            </Advanced.Footer>
-          </AdvancedCon>
-        )}
-      </Popper>
-      <Grid item>
-        <Button type="light" onClick={handleClick("bottom-end")}>
-          <Icons>
-            <Icons.Advanced />
-          </Icons>{" "}
-          Advanced
-        </Button>
-      </Grid>
-      <Button width="180" type="blue">
+        <div>
+          <Button type="light">
+            <Icons>
+              <Icons.Filter />
+              Advanced
+            </Icons>
+          </Button>
+        </div>
+      </Dropdown>
+      <Button type="blue" width={180}>
         <Icons>
           <Icons.Search />
+          Search
         </Icons>
-        Search
       </Button>
     </Container>
   );

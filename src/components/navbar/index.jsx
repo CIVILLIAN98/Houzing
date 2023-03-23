@@ -2,8 +2,9 @@ import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { navbar } from "../../utils/navbar";
 import Button from "../generics/Button";
-import Filter from "../filter/index";
+
 import { Container, Main, Wrapper, Section, Link } from "./style";
+import Filter from "../filter/index";
 
 const Navbar = () => {
   const navigate = useNavigate();

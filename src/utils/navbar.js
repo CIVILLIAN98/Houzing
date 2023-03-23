@@ -1,3 +1,4 @@
+import React from "react";
 import useUniqueID from "../hooks/useID";
 import { Contactspage } from "../pages/Contactspage";
 import { Homepage } from "../pages/Homepage";
@@ -8,6 +9,7 @@ export const navbar = [
     id: useUniqueID,
     title: "Home",
     element: <Homepage />,
+
     path: "/home",
     private: false,
     hidden: false,

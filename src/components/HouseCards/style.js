@@ -6,7 +6,9 @@ import { ReactComponent as ruler } from "../../assets/icons/ruler.svg";
 import { ReactComponent as resize } from "../../assets/icons/resize.svg";
 import { ReactComponent as like } from "../../assets/icons/love.svg";
 const Container = styled.div`
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
+  min-width: 343px;
   height: 429px;
 
   background: #ffffff;
