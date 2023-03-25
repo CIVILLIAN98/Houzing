@@ -1,16 +1,37 @@
 import { Dropdown } from "antd";
-import React, { useRef } from "react";
-import { Container, Icons, MenuWrapper, Section } from "./style";
+import React, { useEffect, useRef, useState } from "react";
+import { Container, Icons, MenuWrapper, Section, SelectAnt } from "./style";
 import { uzeReplace } from "../../hooks/useReplace";
 import { useNavigate, useLocation } from "react-router-dom";
-// import { useSearch } from "../../hooks/useSearch";
+import { useSearch } from "../../hooks/useSearch";
 import Input from "../generics/input";
 import Button from "../generics/Button";
 
 export const Filter = (e) => {
+  const { REACT_APP_BASE_URL: Http } = process.env;
+  const [data, setData] = useState([]);
+  const [value, setValue] = useState("Select Category");
   const location = useLocation();
   const navigate = useNavigate();
-  // const query = useSearch();
+  const query = useSearch();
+
+  useEffect(() => {
+    fetch(`${Http}/categories/list`)
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res?.data || []);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    let [d] = data?.filter(
+      (ctg) => ctg.id === Number(query.get("category_id"))
+    );
+    d?.name && setValue(d?.name);
+    !query.get("category_id") && setValue("Select Category");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location?.search, data]);
 
   const countryRef = useRef();
   const regionRef = useRef();
@@ -18,12 +39,23 @@ export const Filter = (e) => {
   const zipRef = useRef();
   const roomsRef = useRef();
   const Sizeref = useRef();
-  const Sortref = useRef();
+
   const minPriceRef = useRef();
   const maxPriceRef = useRef();
 
   const onChange = ({ target: { name, value } }) => {
     navigate(`${location.pathname}${uzeReplace(name, value)}`);
+  };
+
+  const onSize = ({ target: { value } }) => {
+    navigate(`/properties${uzeReplace("size", value)}`);
+  };
+
+  const onSelect = (category_id) => {
+    navigate(`/properties${uzeReplace("category_id", category_id)}`);
+  };
+  const onSort = (sort) => {
+    navigate(`/properties${uzeReplace("sort", sort)}`);
   };
 
   const menu = (
@@ -68,8 +100,25 @@ export const Filter = (e) => {
           ref={roomsRef}
           placeholder="Rooms"
         />
-        <Input width={200} ref={Sizeref} placeholder="Size" />
-        <Input width={200} ref={Sortref} placeholder="Sort" />
+        <Input width={200} ref={Sizeref} onChange={onSize} placeholder="Size" />
+        <SelectAnt
+          defaultValue={query.get("sort") || "Select Sort"}
+          onChange={onSort}
+        >
+          <SelectAnt.Option value={""}>Select Sort</SelectAnt.Option>
+          <SelectAnt.Option value={"asc"}>Ascending</SelectAnt.Option>
+          <SelectAnt.Option value={"desc"}>Descending</SelectAnt.Option>
+        </SelectAnt>
+        <SelectAnt value={value} onChange={onSelect}>
+          <SelectAnt.Option value={""}>Select Category</SelectAnt.Option>
+          {data.map((val) => {
+            return (
+              <SelectAnt.Option key={val.id} value={val.id}>
+                {val.name}
+              </SelectAnt.Option>
+            );
+          })}
+        </SelectAnt>
       </Section>
       <h1 className="subTitle">Price</h1>
       <Section>

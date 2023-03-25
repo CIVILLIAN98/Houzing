@@ -37,7 +37,7 @@ const HouseCard = ({ data = {} }) => {
           </Container.Title>
           <Container.Subtitle>
             {address || "Quincy St, Brooklyn, NY, USA"} -{" "}
-            {category?.name || "category"}
+            {category?.name || "category"} {`${houseDetails?.room}`}-rooms
           </Container.Subtitle>
         </Container.Texts>
         <Container.Icons>
