@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "./style";
-import CategoryCard from "../CategoryCard ";
+import { Container, Header } from "./style";
+import HouseCard from "../HouseCards/index";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
-import { Header } from "../Recommended/style";
 
-const CategoryCarousel = () => {
-  const { REACT_APP_BASE_URL } = process.env;
+const Recommended = () => {
+  // eslint-disable-next-line
+  const { REACT_APP_BASE_URL: Http } = process.env;
   const [data, setData] = useState([]);
 
   const navigate = useNavigate();
@@ -14,25 +14,25 @@ const CategoryCarousel = () => {
     className: "center",
     centerMode: true,
     infinite: true,
-    centerPadding: "20px",
-    slidesToShow: 4,
+    centerPadding: "0px",
+    slidesToShow: 3,
     speed: 500,
     dots: true,
   };
 
   useEffect(() => {
     // eslint-disable-next-line
-    fetch(`${REACT_APP_BASE_URL}/categories/list`)
+    fetch(`${Http}/houses/list`)
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data || []);
       });
-  }, [REACT_APP_BASE_URL]);
+  }, [Http]);
 
   return (
     <Container>
       <Header>
-        <Header.Title>Category</Header.Title>
+        <Header.Title>Recommended</Header.Title>
         <Header.Subtitle>
           Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
         </Header.Subtitle>
@@ -40,8 +40,8 @@ const CategoryCarousel = () => {
       <Slider {...settings}>
         {data.map((val) => {
           return (
-            <CategoryCard
-              onClick={() => navigate(`/properties?category_id=${val.id}`)}
+            <HouseCard
+              onClick={() => navigate(`/properties`)}
               data={val}
               key={val.id}
             />
@@ -51,4 +51,4 @@ const CategoryCarousel = () => {
     </Container>
   );
 };
-export default CategoryCarousel;
+export default Recommended;

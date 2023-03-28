@@ -30,7 +30,11 @@ const MainCarousel = () => {
 
   return (
     <Container>
-      <Carousel ref={SLiderRef} autoplay={true}>
+      <Carousel
+        style={{ position: "relative" }}
+        ref={SLiderRef}
+        autoplay={true}
+      >
         <Img src={house1} alt="house1" />
 
         <Img src={house2} alt="house2" />
