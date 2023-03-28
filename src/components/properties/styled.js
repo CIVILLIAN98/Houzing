@@ -11,5 +11,6 @@ const Conatiner = styled.div`
   grid-gap: 10px;
   max-width: 1440px;
   margin: auto;
+  min-height: 600px;
 `;
 export { Conatiner };

@@ -5,6 +5,7 @@ import CategoryCarousel from "../Category_carousel";
 import MainCarousel from "../main Carousel";
 import Recent from "../Recent";
 import Recommended from "../Recommended";
+import Testimonials from "../Testimonials";
 import Why from "../Why";
 import { Container } from "./styled";
 
@@ -17,6 +18,7 @@ const Home = () => {
       <CategoryCarousel />
       <Banner />
       <Recent />
+      <Testimonials />
     </Container>
   );
 };
