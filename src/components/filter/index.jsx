@@ -95,12 +95,19 @@ export const Filter = (e) => {
       <Section>
         <Input
           width={200}
+          type="number"
           name="room"
           onChange={onChange}
           ref={roomsRef}
           placeholder="Rooms"
         />
-        <Input width={200} ref={Sizeref} onChange={onSize} placeholder="Size" />
+        <Input
+          width={200}
+          ref={Sizeref}
+          type="number"
+          onChange={onSize}
+          placeholder="Size"
+        />
         <SelectAnt
           defaultValue={query.get("sort") || "Select Sort"}
           onChange={onSort}

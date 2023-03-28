@@ -4,6 +4,7 @@ import { ReactComponent as bed } from "../../assets/icons/bed.svg";
 import { ReactComponent as bath } from "../../assets/icons/bath.svg";
 import { ReactComponent as car } from "../../assets/icons/car.svg";
 import { ReactComponent as ruler } from "../../assets/icons/ruler.svg";
+import house1 from "../../assets/img/house1.png";
 const Container = styled.div`
   width: 100%;
   height: 571px !important;
@@ -29,6 +30,7 @@ const Arrow = styled(arrow)`
     opacity: 0.7;
   }
 `;
+
 const Img = styled.img`
   width: 100%;
   height: 571px !important;
@@ -44,6 +46,8 @@ const Blur = styled.div`
   background: rgba(0, 0, 0, 0.3);
 `;
 const Content = styled.div`
+  width: 100%;
+  height: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -112,5 +116,9 @@ const Ruler = styled(ruler)`
 Content.Fee = styled.h3`
   color: white;
 `;
-
-export { Container, Arrow, Img, Blur, Content, Bed, Bath, Ruler, Car };
+const Pizda = styled.div`
+  background-image: url(house1);
+  width: 100%;
+  height: 900px;
+`;
+export { Container, Arrow, Img, Blur, Content, Bed, Bath, Ruler, Car, Pizda };
