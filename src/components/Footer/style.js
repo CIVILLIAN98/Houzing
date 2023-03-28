@@ -10,6 +10,7 @@ import { ReactComponent as logo } from "../../assets/icons/logo.svg";
 const Container = styled.div`
   width: 100%;
   background: #0d263b;
+  margin-top: 30px;
 `;
 const Wrapper = styled.div`
   width: 100%;

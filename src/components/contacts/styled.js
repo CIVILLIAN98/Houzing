@@ -1,3 +1,6 @@
 import styled from "styled-components";
 
-styled;
+const Conatiner = styled.div`
+  min-height: 600px;
+`;
+export { Conatiner };
