@@ -1,15 +1,14 @@
 import React from "react";
-import useUniqueID from "../hooks/useID";
 import { Contactspage } from "../pages/Contactspage";
 import { Homepage } from "../pages/Homepage";
 import { Propertiespage } from "../pages/Propertiespage";
-
-export const navbar = [
+import useUniqueID from "../hooks/useID";
+import HouseItempage from "../pages/HouseItempage";
+const NavBar = [
   {
     id: useUniqueID,
     title: "Home",
     element: <Homepage />,
-
     path: "/home",
     private: false,
     hidden: false,
@@ -21,6 +20,14 @@ export const navbar = [
     path: "/properties",
     private: false,
     hidden: false,
+  },
+  {
+    id: useUniqueID,
+    title: "Single Item",
+    element: <HouseItempage />,
+    path: "/properties/:id",
+    private: false,
+    hidden: true,
   },
   {
     id: useUniqueID,
@@ -39,3 +46,5 @@ export const navbar = [
     hidden: true,
   },
 ];
+
+export default NavBar;

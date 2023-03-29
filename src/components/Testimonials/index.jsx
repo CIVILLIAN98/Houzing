@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container, Header, Wrapper } from "./style";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
+
 import TestimonialCard from "../Testimonial card";
 
 const Testimonials = () => {
-  // eslint-disable-next-line
-  const { REACT_APP_BASE_URL: Http } = process.env;
-  const [data, setData] = useState([]);
-
-  const navigate = useNavigate();
   const settings = {
     className: "center",
     centerMode: true,
@@ -19,15 +14,6 @@ const Testimonials = () => {
     speed: 500,
     dots: true,
   };
-
-  useEffect(() => {
-    // eslint-disable-next-line
-    fetch(`${Http}/houses/list`)
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res?.data || []);
-      });
-  }, [Http]);
 
   return (
     <Container>

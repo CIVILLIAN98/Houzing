@@ -4,7 +4,7 @@ import noimage from "../../assets/img/noimg.jpeg";
 import nouser from "../../assets/img/nouser.jpeg";
 import { useState } from "react";
 
-const HouseCard = ({ data = {} }) => {
+const HouseCard = ({ data = {}, onClick }) => {
   const {
     attachments,
     salePrice,
@@ -23,7 +23,7 @@ const HouseCard = ({ data = {} }) => {
   };
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       <Container.ImgCon>
         <Container.Img
           src={(attachments && attachments[0]?.imgPath) || noimage}

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Conatiner = styled.div`
+const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(330px, 380px));
   grid-auto-flow: row;
@@ -13,4 +13,4 @@ const Conatiner = styled.div`
   margin: auto;
   min-height: 600px;
 `;
-export { Conatiner };
+export { Container };

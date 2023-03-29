@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { navbar } from "../../utils/navbar";
+import NavBar from "../../utils/navbar";
 import Button from "../generics/Button";
 
 import { Container, Main, Wrapper, Section, Link } from "./style";
@@ -9,6 +9,7 @@ import Footer from "../Footer";
 
 const Navbar = () => {
   const navigate = useNavigate();
+
   return (
     <Container>
       <Main>
@@ -18,7 +19,7 @@ const Navbar = () => {
             <h3>Houzing</h3>
           </Section>
           <Section>
-            {navbar.map((link, index) => {
+            {NavBar.map((link, index) => {
               return (
                 !link.hidden && (
                   <Link
