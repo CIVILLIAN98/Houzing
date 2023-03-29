@@ -14,15 +14,12 @@ const HouseItem = () => {
         setData(res?.data);
 
         // window.scrollTo(0, 0);
-        console.log(res, "data");
       });
   }, [params?.id]);
-
+  console.log(data, "data");
   return (
     <Container>
-      {data?.map((val) => {
-        return <div>{val?.id}</div>;
-      })}
+      <p> {data?.id}</p>
       <h1>House is loading...</h1>
     </Container>
   );
