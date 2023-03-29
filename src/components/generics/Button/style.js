@@ -34,6 +34,7 @@ const GetType = ({ type }) => {
 };
 
 const Container = styled.button`
+  cursor: pointer;
   min-width: 120px;
   height: 44px;
   padding: 12px 40px;
