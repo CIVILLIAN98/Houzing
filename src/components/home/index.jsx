@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "../Banner";
 import CategoryCarousel from "../Category_carousel";
 
-import MainCarousel from "../main Carousel";
+import MainCarousel from "../Main_Carousel";
 import Recent from "../Recent";
 import Recommended from "../Recommended";
 import Testimonials from "../Testimonials";
@@ -21,7 +21,6 @@ const Home = () => {
       <Testimonials />
     </Container>
   );
-  
 };
 
 export default Home;

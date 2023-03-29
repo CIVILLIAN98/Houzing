@@ -10,14 +10,12 @@ class Root extends Component {
         <BrowserRouter>
           <Routes>
             <Route element={<Navbar />}>
-              {NavBar.map((val) => {
-                return (
-                  <Route key={val.id} path={val.title} element={val.element} />
-                );
+              {NavBar.map(({ path, element, id }) => {
+                return <Route key={id} path={path} element={element} />;
               })}
             </Route>
             <Route path="/" element={<Navigate to={"/home"} />} />
-            {/* <Route path="*" element={<h1>404 Not Found</h1>} /> */}
+            <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>
         </BrowserRouter>
       </>

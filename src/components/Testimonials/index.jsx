@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Header, Wrapper } from "./style";
 import Slider from "react-slick";
 
-import TestimonialCard from "../Testimonial card";
+import TestimonialCard from "../Testimonial_card";
 
 const Testimonials = () => {
   const settings = {

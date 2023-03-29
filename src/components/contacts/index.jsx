@@ -1,6 +1,6 @@
 import React from "react";
 // import HouseItem from "../HouseItem";
-import TestimonialCard from "../Testimonial card";
+import TestimonialCard from "../Testimonial_card";
 import { Conatiner } from "./styled";
 
 const Contacts = () => {
