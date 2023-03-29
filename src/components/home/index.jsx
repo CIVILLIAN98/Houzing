@@ -21,6 +21,7 @@ const Home = () => {
       <Testimonials />
     </Container>
   );
+  
 };
 
 export default Home;

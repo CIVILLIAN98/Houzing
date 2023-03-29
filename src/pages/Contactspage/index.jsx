@@ -1,5 +1,9 @@
 import React from "react";
-import Contacts from "../../components/contacts";
-
-export const Contactspage = () => <Contacts />
-
+const Contacts = React.lazy(() => import("../../components/contacts"));
+export const Contactspage = () => {
+  return (
+    <React.Suspense fallback={<React.Fragment>Loading...</React.Fragment>}>
+      <Contacts />;
+    </React.Suspense>
+  );
+};

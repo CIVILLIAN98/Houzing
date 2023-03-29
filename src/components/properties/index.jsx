@@ -1,26 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import HouseCard from "../HouseCards";
-import { Conatiner } from "./styled";
+import { Container } from "./styled";
 
 const Properties = () => {
-  const { REACT_APP_BASE_URL: Http } = process.env;
+  const navigate = useNavigate();
+  // const { REACT_APP_BASE_URL: Http } = process.env;
   const [data, setData] = useState([]);
   const { search } = useLocation();
   useEffect(() => {
-    fetch(`${Http}/houses/list${search}`)
+    // eslint-disable-next-line
+    fetch(`http://158.51.99.245:8081/api/v1/houses/list${search}`)
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data || []);
       });
   }, [search]);
+  const onSelect = (id) => {
+    navigate(`/properties/${id}`);
+  };
 
   return (
-    <Conatiner>
+    <Container>
       {data.map((val) => {
-        return <HouseCard data={val} key={val.id} />;
+        return (
+          <HouseCard
+            onClick={() => onSelect(val?.id)}
+            data={val}
+            key={val.id}
+          />
+        );
       })}
-    </Conatiner>
+    </Container>
   );
 };
 export default Properties;
