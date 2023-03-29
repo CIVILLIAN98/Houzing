@@ -13,6 +13,9 @@ const Input = forwardRef(
       defaultValue,
       value,
       name,
+      border,
+      padding,
+      borderBottom,
     },
     ref
   ) => {
@@ -29,6 +32,9 @@ const Input = forwardRef(
           placeholder={placeholder}
           defaultValue={defaultValue}
           value={value}
+          border={border}
+          padding={padding}
+          borderBottom={borderBottom}
         />
       </Wrapper>
     );
