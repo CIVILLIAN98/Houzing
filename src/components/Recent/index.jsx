@@ -41,7 +41,7 @@ const Recent = () => {
         {data.map((val) => {
           return (
             <HouseCard
-              onClick={() => navigate(`/properties`)}
+              onClick={() => navigate(`/properties/${val.id}`)}
               data={val}
               key={val.id}
             />

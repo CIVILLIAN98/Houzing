@@ -4,7 +4,7 @@ const Container = styled.div`
   margin: 64px auto;
   width: 100%;
   max-width: 580px;
-  height: 376px;
+  height: 300px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -21,33 +21,4 @@ Container.Header = styled.h1`
   line-height: 28px;
   color: #0d263b;
 `;
-const InputCon = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100% !important;
-  border-bottom: ${({ borderBottom }) =>
-    borderBottom ? `${borderBottom}` : "none"};
-`;
-InputCon.Logintext = styled.p`
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 20px;
-  color: #0d263b;
-`;
-InputCon.Passwordtext = styled.p`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 20px;
-  color: #696969;
-`;
-const Forgot = styled.a`
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  text-decoration-line: underline;
-  color: #0061df;
-  cursor: pointer;
-`;
-export { Container, InputCon, Forgot };
+export { Container };
