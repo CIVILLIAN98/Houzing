@@ -13,4 +13,23 @@ const Container = styled.div`
   margin: auto;
   min-height: 600px;
 `;
-export { Container };
+
+const Header = styled.div`
+  text-align: center;
+  margin: 64px auto;
+`;
+Header.Title = styled.h1`
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #0d263b;
+`;
+Header.Subtitle = styled.p`
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #696969;
+`;
+export { Container, Header };

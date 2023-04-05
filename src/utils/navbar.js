@@ -41,7 +41,7 @@ const NavBar = [
   {
     id: useUniqueID,
     title: "Login",
-    element: <h1>Login</h1>,
+    element: <SignInpage />,
     path: "/login",
     private: false,
     hidden: true,

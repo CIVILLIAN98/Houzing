@@ -7,6 +7,9 @@ const Container = styled.input`
   color: black;
   line-height: 20px;
   border: ${({ border }) => (border ? `${border}` : "1px solid #E6E9EC")};
+  :focus {
+    border: 2px solid #0061df;
+  }
   border-bottom: ${({ borderBottom }) =>
     borderBottom ? `${borderBottom}` : "1px solid #E6E9EC"};
   padding: ${({ padding }) => (padding ? `${padding}` : "0 44px")};
@@ -17,6 +20,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 `;
 const Icon = styled.div`
   position: absolute;
