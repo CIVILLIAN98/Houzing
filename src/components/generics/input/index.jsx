@@ -16,6 +16,7 @@ const Input = forwardRef(
       border,
       padding,
       borderBottom,
+      margin,
     },
     ref
   ) => {
@@ -35,6 +36,7 @@ const Input = forwardRef(
           border={border}
           padding={padding}
           borderBottom={borderBottom}
+          margin={margin}
         />
       </Wrapper>
     );

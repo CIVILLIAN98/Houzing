@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.input`
   border-radius: 2px;
-  width: ${({ width }) => (width ? `${width}` : "100%")};
+  width: ${({ width }) => (width ? `${width}px` : "100%")};
   outline: none;
   color: black;
   line-height: 20px;
@@ -15,6 +15,7 @@ const Container = styled.input`
   padding: ${({ padding }) => (padding ? `${padding}` : "0 44px")};
   font-size: ${({ fontSize }) => (fontSize ? `${fontSize}` : "14px")};
   height: ${({ height }) => (height ? `${height}` : "44px")};
+  margin: ${({ margin }) => (margin ? `${margin}` : "0")};
 `;
 const Wrapper = styled.div`
   position: relative;
