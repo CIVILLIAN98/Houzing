@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as share } from "../../assets/icons/share.svg";
 import { ReactComponent as love } from "../../assets/icons/love.svg";
 import { ReactComponent as calendar } from "../../assets/icons/calendar.svg";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1440px;
-  min-height: 1900px;
+
   padding: var(--padding);
   justify-content: flex-start;
   /* align-items: center; */
@@ -58,6 +59,7 @@ const Section = styled.div`
   justify-content: space-between;
   margin-top: ${({ marginTop }) => (marginTop ? `${marginTop}px` : "0")};
   width: ${({ width }) => (width ? `${width}%` : "")};
+  margin: ${({ margin }) => `${margin}`};
 `;
 const Content = styled.div`
   display: flex;
