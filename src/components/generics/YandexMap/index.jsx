@@ -19,13 +19,7 @@ export const Yandex = ({ center }) => {
       <Map
         style={mapStyle}
         defaultState={{ center: center || [41.2995, 69.2401], zoom: 13 }}
-      >
-        {/* <Placemark
-          key={1}
-          options={getPointOptions()}
-          geometry={{coordinates:center}}
-        /> */}
-      </Map>
+      ></Map>
     </YMaps>
   );
 };

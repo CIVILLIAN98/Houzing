@@ -58,7 +58,7 @@ export const Filter = (e) => {
     navigate(`/properties${uzeReplace("sort", sort)}`);
   };
 
-  const menu = (
+  const Menu = (
     <MenuWrapper>
       <h1 className="subTitle">Address</h1>
       <Section>
@@ -149,15 +149,14 @@ export const Filter = (e) => {
 
   return (
     <Container>
-      <div style={{ width: "100%" }}>
-        <Input
-          icon={<Icons.Houses />}
-          placeholder={"Enter an address, neighborhood, city, or ZIP code"}
-        />
-      </div>
+      <Input
+        wr={"100%"}
+        icon={<Icons.Houses />}
+        placeholder={"Enter an address, neighborhood, city, or ZIP code"}
+      />
 
       <Dropdown
-        overlay={menu}
+        overlay={Menu}
         placement="bottomRight"
         arrow={{ pointAtCenter: true }}
         trigger="click"

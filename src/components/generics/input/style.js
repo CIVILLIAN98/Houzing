@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: 100%;
+  width: ${({ wr }) => `${wr}`};
 `;
 const Icon = styled.div`
   position: absolute;
