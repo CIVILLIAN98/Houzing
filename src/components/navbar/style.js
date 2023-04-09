@@ -53,4 +53,33 @@ const Link = styled(NavLink)`
 const CarouselContainer = styled.div`
   width: 100%;
 `;
-export { Container, Wrapper, Section, Link, Main, CarouselContainer };
+
+const ProfileMenu = styled.div`
+  padding: 16px;
+  width: 177px;
+
+  background: #ffffff;
+  box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06),
+    0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  border-radius: 5px;
+`;
+ProfileMenu.Item = styled.p`
+  cursor: pointer;
+  :hover {
+    transform: scale(1.3);
+  }
+`;
+export {
+  Container,
+  Wrapper,
+  Section,
+  Link,
+  Main,
+  CarouselContainer,
+  ProfileMenu,
+};

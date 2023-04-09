@@ -36,11 +36,14 @@ const HouseItem = () => {
         window.scrollTo(0, 0);
       });
   }, [params?.id]);
-  console.log(data, "data");
+  // console.log(data, "data");
   return (
     <React.Fragment>
       <Container>
-        <Photos></Photos>
+        <Photos>
+          <Photos.Img src={data?.attachments?.[0]?.imgPath} />
+        </Photos>
+
         <Wrapper>
           <Section width={100} column={"column"}>
             <Section>
@@ -108,7 +111,13 @@ const HouseItem = () => {
                   </Content.Icon>
                 </LikeAndShare>
                 <Content center={"flex-start"} jc={"flex-end"} marginTop={25}>
-                  <div style={{ display: "flex", alignItems: "center" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
                     <Container.FalsePrice>
                       ${data?.salePrice || 0}/mo
                     </Container.FalsePrice>

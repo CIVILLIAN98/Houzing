@@ -2,13 +2,58 @@ import React from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import NavBar from "../../utils/navbar";
 import Button from "../generics/Button";
-
-import { Container, Main, Wrapper, Section, Link } from "./style";
+import { Dropdown } from "antd";
+import { Container, Main, Wrapper, Section, Link, ProfileMenu } from "./style";
 import Filter from "../filter/index";
 import Footer from "../Footer";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  let token = localStorage.getItem("token");
+  const onClickProfile = ({
+    target: {
+      dataset: { name },
+    },
+  }) => {
+    if (name === "logout") {
+      console.log(window.localStorage.removeItem("token"));
+      navigate("/home");
+    } else {
+      navigate("/profile");
+    }
+  };
+  const Menu = (
+    <ProfileMenu>
+      <ProfileMenu.Item
+        onClick={onClickProfile}
+        data-name="profile"
+        className="subTitle"
+      >
+        My profile
+      </ProfileMenu.Item>
+      <ProfileMenu.Item
+        onClick={onClickProfile}
+        data-name="profile"
+        className="subTitle"
+      >
+        My Properties
+      </ProfileMenu.Item>
+      <ProfileMenu.Item
+        onClick={onClickProfile}
+        data-name="profile"
+        className="subTitle"
+      >
+        Favourites
+      </ProfileMenu.Item>
+      <ProfileMenu.Item
+        onClick={onClickProfile}
+        data-name="logout"
+        className="subTitle"
+      >
+        Log Out
+      </ProfileMenu.Item>
+    </ProfileMenu>
+  );
 
   return (
     <Container>
@@ -34,9 +79,20 @@ const Navbar = () => {
             })}
           </Section>
           <Section>
-            <Button onClick={() => navigate("/login")} type={"dark"}>
-              Log in
-            </Button>
+            {token ? (
+              <Dropdown
+                overlay={Menu}
+                placement="bottom"
+                arrow={{ pointAtCenter: true }}
+                trigger="click"
+              >
+                <Button type={"dark"}>Profile</Button>
+              </Dropdown>
+            ) : (
+              <Button onClick={() => navigate("/login")} type={"dark"}>
+                Sign In
+              </Button>
+            )}
           </Section>
         </Wrapper>
       </Main>

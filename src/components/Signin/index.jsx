@@ -39,8 +39,8 @@ const Signin = () => {
   return (
     <Container>
       <Container.Header>Sign in</Container.Header>
-      <Input onChange={onChange} placeholder="email" />
-      <Input onChange={onChange} placeholder="password" />
+      <Input wr={"100%"} onChange={onChange} placeholder="email" />
+      <Input wr={"100%"} onChange={onChange} placeholder="password" />
       <Button onClick={onSubmit} width="100%" type={"blue"}>
         Login
       </Button>

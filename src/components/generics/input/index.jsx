@@ -17,11 +17,12 @@ const Input = forwardRef(
       padding,
       borderBottom,
       margin,
+      wr,
     },
     ref
   ) => {
     return (
-      <Wrapper>
+      <Wrapper wr={wr}>
         <Icon>{icon}</Icon>
         <Container
           name={name}

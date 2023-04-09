@@ -38,7 +38,7 @@ const MenuWrapper = styled.div`
 `;
 const Section = styled.div`
   display: flex;
-  justify-content: start;
+  justify-content: flex-start !important;
   gap: 20px;
   margin-bottom: 20px;
 `;

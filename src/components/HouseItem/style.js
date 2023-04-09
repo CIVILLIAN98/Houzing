@@ -49,9 +49,14 @@ Wrapper.User = styled.img`
 `;
 const Photos = styled.div`
   min-height: 400px;
+  height: 100%;
   width: 100%;
-  background-color: blue;
+  /* background-color: blue; */
   margin: 24px auto;
+`;
+Photos.Img = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 const Section = styled.div`
   display: flex;

@@ -5,6 +5,7 @@ import { Propertiespage } from "../pages/Propertiespage";
 import useUniqueID from "../hooks/useID";
 import HouseItempage from "../pages/HouseItempage";
 import { SignInpage } from "../pages/Signin_page";
+import { Profilepage } from "../pages/ProfilePage";
 const NavBar = [
   {
     id: useUniqueID,
@@ -52,6 +53,14 @@ const NavBar = [
     element: <SignInpage />,
     path: "/signin",
     private: false,
+    hidden: true,
+  },
+  {
+    id: useUniqueID,
+    title: "Profile",
+    element: <Profilepage />,
+    path: "/profile",
+    private: true,
     hidden: true,
   },
 ];
