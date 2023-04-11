@@ -89,8 +89,8 @@ const Navbar = () => {
                 <Button type={"dark"}>Profile</Button>
               </Dropdown>
             ) : (
-              <Button onClick={() => navigate("/login")} type={"dark"}>
-                Sign In
+              <Button onClick={() => navigate("/register")} type={"dark"}>
+                Log in
               </Button>
             )}
           </Section>

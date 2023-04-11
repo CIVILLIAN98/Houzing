@@ -16,7 +16,13 @@ export const Filter = (e) => {
   const query = useSearch();
 
   useEffect(() => {
-    fetch(`${Http}/categories/list`)
+    fetch(`${Http}/categories/list`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data || []);

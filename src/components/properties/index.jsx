@@ -2,22 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import HouseCard from "../HouseCards";
 import { Container, Header } from "./styled";
+import useRequest from "../../hooks/useRequest";
 
 const Properties = () => {
   const navigate = useNavigate();
-  // const { REACT_APP_BASE_URL: Http } = process.env;
+
   const [data, setData] = useState([]);
   const { search } = useLocation();
+  const request = useRequest();
   useEffect(() => {
-    // eslint-disable-next-line
-    fetch(
-      `http://ec2-3-140-188-131.us-east-2.compute.amazonaws.com:8081/api/v1/houses/list${search}`
+    request({ url: `/houses/list${search}` }).then((res) =>
+      setData(res?.data || [])
     )
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res?.data || []);
-      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
+
   const onSelect = (id) => {
     navigate(`/properties/${id}`);
   };

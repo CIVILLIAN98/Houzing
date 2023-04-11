@@ -1,23 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import HouseCard from "../HouseCards";
 import { Container, Header } from "./style";
+import { useQuery } from "react-query";
+import { PropertiesContext } from "../../Context/properties";
 
 const Favourite = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
   const { search } = useLocation();
-  useEffect(() => {
-    fetch(
-      `http://ec2-3-140-188-131.us-east-2.compute.amazonaws.com:8081/api/v1/houses/getAll/favouriteList`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res?.data || []);
-      });
-    // eslint-disable-next-line
-  }, [search]);
-  console.log(data, "data");
+  const { REACT_APP_BASE_URL } = process.env;
+  const [, dispatch] = useContext(PropertiesContext);
+
+  const { refetch, data } = useQuery(
+    [search],
+    async () => {
+      const res = await fetch(
+        `${REACT_APP_BASE_URL}/houses/getAll/favouriteList`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      return await res.json();
+    },
+    {
+      onSuccess: (res) => {
+        dispatch({ type: "refetch", payload: refetch });
+      },
+    }
+  );
+
   const onSelect = (id) => {
     navigate(`/properties/${id}`);
   };
@@ -25,14 +38,14 @@ const Favourite = () => {
   return (
     <React.Fragment>
       <Header>
-        <Header.Title>Favourite</Header.Title>
+        <Header.Title>Favorite</Header.Title>
         <Header.Subtitle>
           Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
         </Header.Subtitle>
       </Header>
       <Container>
-        {data?.length ? (
-          data.map((val) => {
+        {data?.data?.length ? (
+          data?.data.map((val) => {
             return (
               <HouseCard
                 onClick={() => onSelect(val?.id)}
