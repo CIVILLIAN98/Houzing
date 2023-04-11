@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, Bed, Bath, Ruler, Car, Like, Resize } from "./style";
 import noimage from "../../assets/img/noimg.jpeg";
 import nouser from "../../assets/img/nouser.jpeg";
-import { useState } from "react";
+import { message } from "antd";
+import { PropertiesContext } from "../../Context/properties";
+// import { useState } from "react";
 
 const HouseCard = ({ data = {}, onClick }) => {
+  const [{ refetch }] = useContext(PropertiesContext);
   const {
     attachments,
     salePrice,
@@ -15,13 +18,28 @@ const HouseCard = ({ data = {}, onClick }) => {
     houseDetails,
     address,
     category,
+    favorite,
+    id,
   } = data;
-  const [like, setLike] = useState(false);
 
-  const changestyle = () => {
-    return setLike((current) => !current);
+  const save = (event) => {
+    event.stopPropagation();
+    fetch(
+      `http://ec2-3-140-188-131.us-east-2.compute.amazonaws.com:8081/api/v1/houses/addFavourite/${id}?favourite=${!favorite}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        if (favorite) res?.success && message.warning("Disliked");
+        else res?.success && message.info("Liked");
+        refetch && refetch();
+      });
   };
-
   return (
     <Container onClick={onClick}>
       <Container.ImgCon>
@@ -75,14 +93,14 @@ const HouseCard = ({ data = {}, onClick }) => {
         <Container.FooterIcons>
           <Resize />
           <Like.Con
-            onClick={() => changestyle()}
+            onClick={save}
+            favorite={favorite}
             style={{
               width: "38px",
               height: "38px",
-              background: !like ? "#F6F8F9" : "red",
             }}
           >
-            <Like />
+            <Like favorite={favorite} />
           </Like.Con>
         </Container.FooterIcons>
       </Container.Footer>

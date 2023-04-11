@@ -22,13 +22,20 @@ const CategoryCarousel = () => {
 
   useEffect(() => {
     // eslint-disable-next-line
-    fetch(`${REACT_APP_BASE_URL}/categories/list`)
+    fetch(`${REACT_APP_BASE_URL}/categories/list`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data || []);
       });
+    // eslint-disable-next-line
   }, [REACT_APP_BASE_URL]);
-
+  console.log(data, "category data");
   return (
     <Container>
       <Header>

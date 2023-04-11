@@ -19,11 +19,12 @@ import Button from "../../components/generics/Button/index";
 import { Checkbox } from "antd";
 import { Yandex } from "../generics/YandexMap";
 import Recent from "../Recent";
+// import { PropertiesContext } from "../../Context/properties";
 
 const HouseItem = () => {
   const [data, setData] = useState([]);
   const params = useParams();
-
+  // const [{ refetch }] = useContext(PropertiesContext);
   useEffect(() => {
     // eslint-disable-next-line
     fetch(
@@ -36,7 +37,7 @@ const HouseItem = () => {
         window.scrollTo(0, 0);
       });
   }, [params?.id]);
-  // console.log(data, "data");
+
   return (
     <React.Fragment>
       <Container>

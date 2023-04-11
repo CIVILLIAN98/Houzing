@@ -113,12 +113,16 @@ const Like = styled(like)`
   :active {
     transform: scale(0.8);
   }
+  & path {
+    fill: ${({ favorite }) => favorite && "white"};
+  }
 `;
 Like.Con = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  background-color: ${({ favorite }) => (favorite ? "red" : "white")};
 `;
 const Resize = styled(resize)`
   cursor: pointer;
