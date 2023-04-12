@@ -13,10 +13,9 @@ const Properties = () => {
   useEffect(() => {
     request({ url: `/houses/list${search}` }).then((res) =>
       setData(res?.data || [])
-    )
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
-
   const onSelect = (id) => {
     navigate(`/properties/${id}`);
   };
