@@ -37,7 +37,7 @@ export const Myproperties = () => {
                 {data.city} {data.region}
               </div>
               <del>
-                <div className="info">$ {data.price}</div>
+                <div className="info">$ {data.salePrice}</div>
               </del>
             </User>
             <div style={{ marginLeft: "auto" }}>
