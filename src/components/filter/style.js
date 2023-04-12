@@ -56,15 +56,4 @@ const SelectAnt = styled(Select)`
   }
 `;
 
-// const Select = styled.select`
-//   min-width: 200px;
-//   width: 100%;
-//   max-width: 200px;
-//   height: 44px !important;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   border: 1px solid #e6e9ec;
-// `;
-
 export { Container, Icons, MenuWrapper, Section, SelectAnt };

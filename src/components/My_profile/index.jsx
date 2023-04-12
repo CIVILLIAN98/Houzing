@@ -1,13 +1,12 @@
 import React from "react";
 import { Container, Wrapper } from "./style";
-import Favourite from "../Favourite";
 
-export const Profile = () => {
+const Profile = () => {
+  //Profile
   return (
     <Container>
-      <Wrapper>
-        <Favourite />
-      </Wrapper>
+      <Wrapper>My profile</Wrapper>
     </Container>
   );
 };
+export default Profile;
