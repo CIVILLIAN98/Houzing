@@ -38,7 +38,7 @@ const Favourite = () => {
   return (
     <React.Fragment>
       <Header>
-        <Header.Title>Favorite</Header.Title>
+        <Header.Title>Favorite Houses</Header.Title>
         <Header.Subtitle>
           Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
         </Header.Subtitle>

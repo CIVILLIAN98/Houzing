@@ -16,10 +16,14 @@ const Navbar = () => {
     },
   }) => {
     if (name === "logout") {
-      console.log(window.localStorage.removeItem("token"));
+      window.localStorage.removeItem("token");
       navigate("/home");
-    } else {
+    } else if (name === "profile") {
       navigate("/profile");
+    } else if (name === "myproperties") {
+      navigate("/myproperties");
+    } else if (name === "myfavorite") {
+      navigate("/myfavorite");
     }
   };
   const Menu = (
@@ -33,14 +37,14 @@ const Navbar = () => {
       </ProfileMenu.Item>
       <ProfileMenu.Item
         onClick={onClickProfile}
-        data-name="profile"
+        data-name="myproperties"
         className="subTitle"
       >
         My Properties
       </ProfileMenu.Item>
       <ProfileMenu.Item
         onClick={onClickProfile}
-        data-name="profile"
+        data-name="myfavorite"
         className="subTitle"
       >
         Favourites
