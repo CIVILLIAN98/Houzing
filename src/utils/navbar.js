@@ -85,6 +85,14 @@ const NavBar = [
   },
   {
     id: useUniqueID,
+    title: "EDIT NEW HOUSE",
+    element: <AddNewHousePage />,
+    path: "/myprofile/edithouse/:id",
+    private: true,
+    hidden: true,
+  },
+  {
+    id: useUniqueID,
     title: "My favorite",
     element: <MyFavoritepage />,
     path: "/myfavorite",

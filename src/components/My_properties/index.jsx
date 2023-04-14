@@ -23,7 +23,7 @@ export const Myproperties = () => {
       key: "name",
       render: (data) => {
         return (
-          <User>
+          <User key={data?.id}>
             <User.Img
               src={
                 (data?.attachments && data?.attachments[0]?.imgPath) || noimg
@@ -49,19 +49,21 @@ export const Myproperties = () => {
     },
     {
       title: "Year Build",
-      render: (data) => <span> {data.houseDetails.yearBuilt}</span>,
+      render: (data) => (
+        <span key={data?.id}> {data.houseDetails.yearBuilt}</span>
+      ),
       key: "houseDetails.yearBuilt",
       width: 150,
     },
     {
       title: "Email",
-      render: (data) => <span> {data.user.email}</span>,
+      render: (data) => <span key={data?.id}> {data.user.email}</span>,
       key: "email",
     },
     {
       title: "Price",
       key: "price",
-      render: (data) => <span> $ {data.price}</span>,
+      render: (data) => <span key={data?.id}> $ {data.price}</span>,
 
       width: 150,
     },
@@ -71,7 +73,7 @@ export const Myproperties = () => {
       width: 100,
       render: (data) => {
         return (
-          <User>
+          <User key={data?.id}>
             <Icons.Edit
               onClick={(event) => {
                 event.stopPropagation();
@@ -126,6 +128,7 @@ export const Myproperties = () => {
           }}
           dataSource={data?.data}
           columns={columns}
+          key={data?.id}
         />
       </Container>
     </Wrapper>
