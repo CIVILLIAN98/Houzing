@@ -23,12 +23,14 @@ const MenuWrapper = styled.div`
 const Section = styled.div`
   display: flex;
   flex-direction: ${({ flex }) => (flex ? "column" : "row")};
-  justify-content: ${({ jc }) => (jc ? "space-between" : "flex-start")};
+  justify-content: ${({ jc }) =>
+    jc ? "space-between" : "flex-start !important"};
   align-items: ${({ c }) => (c ? "flex-start" : "center")};
   gap: 20px;
   margin-bottom: 20px;
   width: 100%;
   background-color: ${({ test }) => (test ? "red" : "transparent")};
+  width: ${({ w }) => `${w} !important`};
 `;
 const SelectAnt = styled(Select)`
   min-width: 200px;

@@ -35,7 +35,7 @@ const CategoryCarousel = () => {
       });
     // eslint-disable-next-line
   }, [REACT_APP_BASE_URL]);
-  console.log(data, "category data");
+
   return (
     <Container>
       <Header>

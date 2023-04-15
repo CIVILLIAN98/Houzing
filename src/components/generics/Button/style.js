@@ -33,6 +33,38 @@ const GetType = ({ type }) => {
   }
 };
 
+const GetStyle = ({ css }) => {
+  switch (css) {
+    case "dark": {
+      return {
+        background: "transparent",
+        color: "white",
+        border: "1px solid rgba(255, 255, 255, 1)",
+      };
+    }
+    case "light": {
+      return {
+        background: "transparent",
+        color: "black",
+        border: "1px solid #E6E9EC",
+      };
+    }
+    case "blue": {
+      return {
+        background: "#0061DF",
+        color: "#ffff",
+        border: "1px solid #0061DF",
+      };
+    }
+
+    default:
+      return {
+        background: "#fffff",
+        color: "black",
+        border: "1px solid rgba(255, 255, 255, 1)",
+      };
+  }
+};
 const Container = styled.button`
   cursor: pointer;
   min-width: 120px;
@@ -44,7 +76,7 @@ const Container = styled.button`
   justify-content: center;
   font-size: 14px;
   line-height: 20px;
-  ${GetType}
+  ${GetType};
   margin: ${({ margin }) => (margin ? `${margin}px` : "0")};
   margin-top: ${({ mt }) => (mt ? `${mt}px` : 0)};
   :active {
@@ -52,6 +84,8 @@ const Container = styled.button`
   }
   height: ${({ height }) => (height ? `${height}` : "44px")};
   width: ${({ width }) => (width ? `${width}` : "131px")};
+  background: ${({ css }) => (css ? `#0061df` : "")};
+  color: ${({ css }) => (css ? `white` : ``)};
 `;
 
 export { Container };

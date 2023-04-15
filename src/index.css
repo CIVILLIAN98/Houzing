@@ -54,9 +54,6 @@ input {
   font-weight: 600;
   font-size: 28px;
   letter-spacing: -0.02em;
-
-  /* text/1 */
-
   color: #0d263b;
 }
 
@@ -95,4 +92,10 @@ Checkbox {
 :where(.css-dev-only-do-not-override-1me4733).ant-checkbox-wrapper
   + .ant-checkbox-wrapper {
   margin-inline-start: 0 !important;
+}
+pre {
+  overflow: hidden;
+  /* white-space: nowrap; Don't forget this one */
+  text-overflow: ellipsis;
+  width: 100%;
 }

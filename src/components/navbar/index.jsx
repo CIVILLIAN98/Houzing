@@ -18,8 +18,6 @@ const Navbar = () => {
     if (name === "logout") {
       window.localStorage.removeItem("token");
       navigate("/home");
-    } else if (name === "profile") {
-      navigate("/profile");
     } else if (name === "myproperties") {
       navigate("/myproperties");
     } else if (name === "myfavorite") {
@@ -28,13 +26,6 @@ const Navbar = () => {
   };
   const Menu = (
     <ProfileMenu>
-      <ProfileMenu.Item
-        onClick={onClickProfile}
-        data-name="profile"
-        className="subTitle"
-      >
-        My profile
-      </ProfileMenu.Item>
       <ProfileMenu.Item
         onClick={onClickProfile}
         data-name="myproperties"

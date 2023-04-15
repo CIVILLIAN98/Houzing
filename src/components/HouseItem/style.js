@@ -10,7 +10,6 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   max-width: 1440px;
-
   padding: var(--padding);
   justify-content: flex-start;
   /* align-items: center; */
@@ -29,7 +28,6 @@ Wrapper.Card = styled.div`
   background: #ffffff;
   border: 1px solid #e6e9ec;
   border-radius: 3px;
-  /* background-color: red; */
   padding: 25px;
   display: flex;
   flex-direction: column;
@@ -47,17 +45,66 @@ Wrapper.User = styled.img`
   height: 52px;
   border-radius: 50%;
 `;
-const Photos = styled.div`
+const ImageContainer = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 24px auto;
   min-height: 400px;
   height: 100%;
-  width: 100%;
-  /* background-color: blue; */
-  margin: 24px auto;
+  padding: var(--padding);
 `;
-Photos.Img = styled.img`
+
+const ImgContainer = styled.div`
+  display: grid;
+  grid-template-columns: 280px 280px;
+  
+  gap: 20px;
+  margin-left: 20px;
   width: 100%;
-  height: 100%;
 `;
+
+ImageContainer.Main = styled.img`
+  width: 100%;
+  max-width: 580px;
+  max-height: 400px;
+`;
+ImageContainer.Subimg = styled.img`
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  max-height: 190px;
+`;
+
+const Blur = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: bold;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+  /* identical to box height, or 122% */
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+`;
+Blur.Container = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  max-height: 190px;
+`;
+
 const Section = styled.div`
   display: flex;
   flex-direction: ${({ column }) => (column ? `${column}` : "row")};
@@ -169,7 +216,7 @@ Container.RealPrice = styled.p`
 export {
   Container,
   Wrapper,
-  Photos,
+  Blur,
   Section,
   Content,
   Share,
@@ -177,4 +224,6 @@ export {
   Calendar,
   LikeAndShare,
   Description,
+  ImgContainer,
+  ImageContainer,
 };
