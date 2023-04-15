@@ -3,12 +3,11 @@ import { Container, Header } from "./style";
 import HouseCard from "../HouseCards/index";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
+import useRequest from "../../hooks/useRequest";
 
 const Recommended = () => {
-  // eslint-disable-next-line
-  const { REACT_APP_BASE_URL: Http } = process.env;
   const [data, setData] = useState([]);
-
+  const request = useRequest();
   const navigate = useNavigate();
   const settings = {
     className: "center",
@@ -21,13 +20,13 @@ const Recommended = () => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line
-    fetch(`${Http}/houses/list`)
+    request({ url: `/houses/list`, token: true })
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data || []);
       });
-  }, [Http]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Container>

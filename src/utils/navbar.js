@@ -1,5 +1,4 @@
 import React from "react";
-import { Contactspage } from "../pages/Contactspage";
 import { Homepage } from "../pages/Homepage";
 import { Propertiespage } from "../pages/Propertiespage";
 import useUniqueID from "../hooks/useID";
@@ -34,14 +33,6 @@ const NavBar = [
     path: "/properties/:id",
     private: false,
     hidden: true,
-  },
-  {
-    id: useUniqueID,
-    title: "Contacts",
-    element: <Contactspage />,
-    path: "/contacts",
-    private: false,
-    hidden: false,
   },
   {
     id: useUniqueID,

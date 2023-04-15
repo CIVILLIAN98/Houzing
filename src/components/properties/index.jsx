@@ -8,7 +8,7 @@ const Properties = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const { search } = useLocation();
-  
+
   const request = useRequest();
   useEffect(() => {
     request({ url: `/houses/list${search}` }).then((res) =>
@@ -31,11 +31,13 @@ const Properties = () => {
       <Container>
         {data.map((val) => {
           return (
-            <HouseCard
-              onClick={() => onSelect(val?.id)}
-              data={val}
-              key={val.id}
-            />
+            (data && (
+              <HouseCard
+                onClick={() => onSelect(val?.id)}
+                data={val}
+                key={val.id}
+              />
+            )) || <h1>No data found</h1>
           );
         })}
       </Container>
