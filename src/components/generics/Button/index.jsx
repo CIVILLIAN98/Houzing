@@ -10,6 +10,7 @@ const Button = (props) => {
       width={props.width}
       margin={props.margin}
       mt={props.mt}
+      css={props.css}
     >
       {props.children}
     </Container>

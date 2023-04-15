@@ -6,15 +6,18 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useSearch } from "../../hooks/useSearch";
 import Input from "../generics/input";
 import Button from "../generics/Button";
-
+import { useRequest } from "../../hooks/useRequest";
 export const Filter = (e) => {
   const { REACT_APP_BASE_URL: Http } = process.env;
   const [data, setData] = useState([]);
   const [value, setValue] = useState("Select Category");
+  const [info, setInfo] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const query = useSearch();
+  const request = useRequest();
 
+  //category list
   useEffect(() => {
     fetch(`${Http}/categories/list`, {
       method: "GET",
@@ -29,7 +32,7 @@ export const Filter = (e) => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  //category property
   useEffect(() => {
     let [d] = data?.filter(
       (ctg) => ctg.id === Number(query.get("category_id"))
@@ -38,6 +41,12 @@ export const Filter = (e) => {
     !query.get("category_id") && setValue("Select Category");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location?.search, data]);
+
+  useEffect(() => {
+    request({
+      url: `/houses/list`,
+    }).then((res) => setInfo(res?.data || []));
+  }, []);
 
   const countryRef = useRef();
   const regionRef = useRef();
@@ -51,6 +60,12 @@ export const Filter = (e) => {
 
   const onChange = ({ target: { name, value } }) => {
     navigate(`${location.pathname}${uzeReplace(name, value)}`);
+  };
+  const onSearch = ({ target: { name, value } }) => {
+    window.location.pathname === `/properties`
+      ? navigate(`${location.pathname}${uzeReplace(name, value)}`)
+      : navigate("/properties") &&
+        navigate(`${location.pathname}${uzeReplace(name, value)}`);
   };
 
   const onSize = ({ target: { value } }) => {
@@ -159,6 +174,9 @@ export const Filter = (e) => {
         wr={"100%"}
         icon={<Icons.Houses />}
         placeholder={"Enter an address, neighborhood, city, or ZIP code"}
+        ref={countryRef}
+        name="country"
+        onChange={onSearch}
       />
 
       <Dropdown

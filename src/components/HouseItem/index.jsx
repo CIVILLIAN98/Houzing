@@ -7,10 +7,12 @@ import {
   Description,
   Like,
   LikeAndShare,
-  Photos,
+  Blur,
   Section,
   Share,
   Wrapper,
+  ImgContainer,
+  ImageContainer,
 } from "./style";
 import { Bath, Bed, Car, Ruler } from "../HouseCards/style";
 import nouser from "../../assets/img/nouser.jpeg";
@@ -20,6 +22,7 @@ import { Checkbox } from "antd";
 import { Yandex } from "../generics/YandexMap";
 import Recent from "../Recent";
 // import { PropertiesContext } from "../../Context/properties";
+import noimg from "../../assets/img/noimg.png";
 
 const HouseItem = () => {
   const [data, setData] = useState([]);
@@ -33,18 +36,42 @@ const HouseItem = () => {
       .then((res) => res.json())
       .then((res) => {
         setData(res?.data);
-
-        window.scrollTo(0, 0);
       });
   }, [params?.id]);
-
+  // console.log(
+  //   data?.attachments && data?.attachments.slice(1, 5),
+  //   "photo set test w"
+  // );
   return (
     <React.Fragment>
+      <ImageContainer>
+        <ImageContainer.Main
+          src={(data?.attachments && data?.attachments[0]?.imgPath) || noimg}
+          alt="test"
+        />
+        <ImgContainer>
+          {data?.attachments &&
+            data?.attachments?.slice(1, 5).map((value, index) => {
+              return data?.attachments?.length > 5 && index === 3 ? (
+                <Blur.Container>
+                  <ImageContainer.Subimg
+                    key={value.id}
+                    src={value?.imgPath}
+                    alt="test"
+                  />
+                  <Blur>+{data?.attachments?.length - 5}</Blur>
+                </Blur.Container>
+              ) : (
+                <ImageContainer.Subimg
+                  key={value.id}
+                  src={value?.imgPath}
+                  alt="test"
+                />
+              );
+            })}
+        </ImgContainer>
+      </ImageContainer>
       <Container>
-        <Photos>
-          <Photos.Img src={data?.attachments?.[0]?.imgPath} />
-        </Photos>
-
         <Wrapper>
           <Section width={100} column={"column"}>
             <Section>

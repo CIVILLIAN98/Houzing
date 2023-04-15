@@ -6,9 +6,9 @@ import useRequest from "../../hooks/useRequest";
 
 const Properties = () => {
   const navigate = useNavigate();
-
   const [data, setData] = useState([]);
   const { search } = useLocation();
+  
   const request = useRequest();
   useEffect(() => {
     request({ url: `/houses/list${search}` }).then((res) =>
