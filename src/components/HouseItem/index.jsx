@@ -21,27 +21,21 @@ import Button from "../../components/generics/Button/index";
 import { Checkbox } from "antd";
 import { Yandex } from "../generics/YandexMap";
 import Recent from "../Recent";
-// import { PropertiesContext } from "../../Context/properties";
 import noimg from "../../assets/img/noimg.png";
+import useRequest from "../../hooks/useRequest";
 
 const HouseItem = () => {
   const [data, setData] = useState([]);
   const params = useParams();
-  // const [{ refetch }] = useContext(PropertiesContext);
+  const request = useRequest();
   useEffect(() => {
-    // eslint-disable-next-line
-    fetch(
-      `http://ec2-3-140-188-131.us-east-2.compute.amazonaws.com:8081/api/v1/houses/id/${params?.id}`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res?.data);
-      });
+    request({
+      url: `/houses/id/${params?.id}`,
+      token: true,
+    }).then((res) => {
+      setData(res?.data);
+    });
   }, [params?.id]);
-  // console.log(
-  //   data?.attachments && data?.attachments.slice(1, 5),
-  //   "photo set test w"
-  // );
   return (
     <React.Fragment>
       <ImageContainer>
@@ -53,7 +47,7 @@ const HouseItem = () => {
           {data?.attachments &&
             data?.attachments?.slice(1, 5).map((value, index) => {
               return data?.attachments?.length > 5 && index === 3 ? (
-                <Blur.Container>
+                <Blur.Container key={value.id}>
                   <ImageContainer.Subimg
                     key={value.id}
                     src={value?.imgPath}
