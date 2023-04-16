@@ -4,9 +4,10 @@ import CategoryCard from "../CategoryCard ";
 import Slider from "react-slick";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../Recommended/style";
+import useRequest from "../../hooks/useRequest";
 
 const CategoryCarousel = () => {
-  const { REACT_APP_BASE_URL } = process.env;
+  const request = useRequest();
   const [data, setData] = useState([]);
 
   const navigate = useNavigate();
@@ -22,19 +23,11 @@ const CategoryCarousel = () => {
 
   useEffect(() => {
     // eslint-disable-next-line
-    fetch(`${REACT_APP_BASE_URL}/categories/list`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res?.data || []);
-      });
+    request({ url: `/categories/list`, token: true }).then((res) => {
+      setData(res?.data || []);
+    });
     // eslint-disable-next-line
-  }, [REACT_APP_BASE_URL]);
+  }, []);
 
   return (
     <Container>

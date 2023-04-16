@@ -6,16 +6,14 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useSearch } from "../../hooks/useSearch";
 import Input from "../generics/input";
 import Button from "../generics/Button";
-import { useRequest } from "../../hooks/useRequest";
+
 export const Filter = (e) => {
   const { REACT_APP_BASE_URL: Http } = process.env;
   const [data, setData] = useState([]);
   const [value, setValue] = useState("Select Category");
-  const [info, setInfo] = useState([]);
   const location = useLocation();
   const navigate = useNavigate();
   const query = useSearch();
-  const request = useRequest();
 
   //category list
   useEffect(() => {
@@ -41,12 +39,6 @@ export const Filter = (e) => {
     !query.get("category_id") && setValue("Select Category");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location?.search, data]);
-
-  useEffect(() => {
-    request({
-      url: `/houses/list`,
-    }).then((res) => setInfo(res?.data || []));
-  }, []);
 
   const countryRef = useRef();
   const regionRef = useRef();

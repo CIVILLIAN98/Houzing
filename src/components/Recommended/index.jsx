@@ -20,11 +20,9 @@ const Recommended = () => {
   };
 
   useEffect(() => {
-    request({ url: `/houses/list`, token: true })
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res?.data || []);
-      });
+    request({ url: `/houses/list`, token: true }).then((res) => {
+      setData(res?.data || []);
+    });
     // eslint-disable-next-line
   }, []);
 

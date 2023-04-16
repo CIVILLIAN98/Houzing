@@ -35,6 +35,7 @@ const HouseItem = () => {
     }).then((res) => {
       setData(res?.data);
     });
+    // eslint-disable-next-line
   }, [params?.id]);
   return (
     <React.Fragment>

@@ -5,10 +5,8 @@ import Button from "../generics/Button/index";
 import noimg from "../../assets/img/noimg.jpeg";
 import { useQuery } from "react-query";
 import { message } from "antd";
-// import { useEffect, useState } from "react";
 
 export const Myproperties = () => {
-  // const [data, setData] = useState([]);
   const { search } = useLocation();
   const navigate = useNavigate();
   const request = useRequest();
@@ -123,7 +121,7 @@ export const Myproperties = () => {
             return {
               onClick: () => {
                 navigate(`/properties/${record?.id}`);
-              }, // click row
+              },
             };
           }}
           dataSource={data?.data}
