@@ -100,7 +100,7 @@ const HouseCard = ({ data = {}, onClick }) => {
               height: "38px",
             }}
           >
-            <Like favorite={favorite} />
+            <Like />
           </Like.Con>
         </Container.FooterIcons>
       </Container.Footer>

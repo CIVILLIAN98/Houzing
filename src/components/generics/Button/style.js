@@ -33,38 +33,6 @@ const GetType = ({ type }) => {
   }
 };
 
-const GetStyle = ({ css }) => {
-  switch (css) {
-    case "dark": {
-      return {
-        background: "transparent",
-        color: "white",
-        border: "1px solid rgba(255, 255, 255, 1)",
-      };
-    }
-    case "light": {
-      return {
-        background: "transparent",
-        color: "black",
-        border: "1px solid #E6E9EC",
-      };
-    }
-    case "blue": {
-      return {
-        background: "#0061DF",
-        color: "#ffff",
-        border: "1px solid #0061DF",
-      };
-    }
-
-    default:
-      return {
-        background: "#fffff",
-        color: "black",
-        border: "1px solid rgba(255, 255, 255, 1)",
-      };
-  }
-};
 const Container = styled.button`
   cursor: pointer;
   min-width: 120px;
