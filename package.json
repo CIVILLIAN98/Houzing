@@ -1,6 +1,5 @@
 {
-  "homepage": "https//CIVILLIAN98.github.io/Houzing",
-  "name": "fetch-axios",
+  "name": "houzing",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
