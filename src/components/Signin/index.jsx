@@ -31,8 +31,8 @@ const Signin = () => {
       if (res?.authenticationToken) {
         navigate("/home");
         localStorage.setItem("token", res?.authenticationToken);
+        info();
       }
-      info();
     });
   };
 
