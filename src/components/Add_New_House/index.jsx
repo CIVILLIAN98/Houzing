@@ -304,7 +304,6 @@ export const AddNewHouse = () => {
               <Checkbox
                 onChange={formik.handleChange}
                 name="componentsDto.airCondition"
-                // values={formik.values.componentsDto?.airCondition}
               >
                 Air Condition
               </Checkbox>
@@ -323,7 +322,6 @@ export const AddNewHouse = () => {
               <Checkbox
                 onChange={formik.handleChange}
                 name="componentsDto.gasStove"
-                // value={formik.values.componentsDto.gasStove}
               >
                 Gas Stove
               </Checkbox>
@@ -346,7 +344,6 @@ export const AddNewHouse = () => {
               <Checkbox
                 onChange={formik.handleChange}
                 name="componentsDto.internet"
-                // value={formik.values.componentsDto.internet}
               >
                 Internet
               </Checkbox>

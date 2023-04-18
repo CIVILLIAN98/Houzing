@@ -4,7 +4,7 @@ import { ReactComponent as bed } from "../../assets/icons/bed.svg";
 import { ReactComponent as bath } from "../../assets/icons/bath.svg";
 import { ReactComponent as car } from "../../assets/icons/car.svg";
 import { ReactComponent as ruler } from "../../assets/icons/ruler.svg";
-// import house1 from "../../assets/img/house1.png";
+
 const Container = styled.div`
   width: 100%;
   height: 571px !important;

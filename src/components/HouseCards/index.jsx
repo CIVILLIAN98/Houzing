@@ -4,7 +4,6 @@ import noimage from "../../assets/img/noimg.jpeg";
 import nouser from "../../assets/img/nouser.jpeg";
 import { message } from "antd";
 import { PropertiesContext } from "../../Context/properties";
-// import { useState } from "react";
 
 const HouseCard = ({ data = {}, onClick }) => {
   const [{ refetch }] = useContext(PropertiesContext);
