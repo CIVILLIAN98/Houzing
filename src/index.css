@@ -67,32 +67,7 @@ input {
 
   color: #696969;
 }
-/* td {
-  margin: 0 45px;
-} */
 
-Checkbox {
-  margin-inline-start: 0 !important;
-}
-.css-dev-only-do-not-override-1me4733
-  + .ant-checkbox-wrapper
-  + .ant-checkbox-wrapper {
-  margin-inline-start: 0 !important;
-}
-#root
-  > div
-  > div.sc-ZqFbI.cpEuhQ
-  > form
-  > div
-  > div.sc-hlLBRy.hEyAIN
-  > div:nth-child(2)
-  > label:nth-child(2) {
-  margin-inline-start: 0 !important;
-}
-:where(.css-dev-only-do-not-override-1me4733).ant-checkbox-wrapper
-  + .ant-checkbox-wrapper {
-  margin-inline-start: 0 !important;
-}
 pre {
   overflow: hidden;
   /* white-space: nowrap; Don't forget this one */
