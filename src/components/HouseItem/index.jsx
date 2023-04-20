@@ -37,6 +37,7 @@ const HouseItem = () => {
     });
     // eslint-disable-next-line
   }, [params?.id]);
+
   return (
     <React.Fragment>
       <ImageContainer>
@@ -44,6 +45,7 @@ const HouseItem = () => {
           src={(data?.attachments && data?.attachments[0]?.imgPath) || noimg}
           alt="test"
         />
+
         <ImgContainer>
           {data?.attachments &&
             data?.attachments?.slice(1, 5).map((value, index) => {
@@ -84,31 +86,31 @@ const HouseItem = () => {
                   <Container.IconCon>
                     <Bed />
                     <Container.IconText>
-                      {`${data?.beds || 4}`} Beds
+                      {`${data?.houseDetails?.beds || 4}`} Beds
                     </Container.IconText>
                   </Container.IconCon>
                   <Container.IconCon>
                     <Bath />
                     <Container.IconText>
-                      {`${data?.bath || 5}`} Baths
+                      {`${data?.houseDetails?.bath || 5}`} Baths
                     </Container.IconText>
                   </Container.IconCon>
                   <Container.IconCon>
                     <Car />
                     <Container.IconText>
-                      {`${data?.garage || 1}`} Garage
+                      {`${data?.houseDetails?.garage || 1}`} Garage
                     </Container.IconText>
                   </Container.IconCon>
                   <Container.IconCon>
                     <Ruler />
                     <Container.IconText>
-                      {`${data?.area || 1200}`} Sq Ft
+                      {`${data?.houseDetails?.area || 1200}`} Sq Ft
                     </Container.IconText>
                   </Container.IconCon>
                   <Container.IconCon>
                     <Calendar />
                     <Container.IconText>
-                      {`${data?.area || 1200}`} Sq Ft
+                      {`${data?.houseDetails?.yearBuilt || 1999}`} Sq Ft
                     </Container.IconText>
                   </Container.IconCon>
                 </Container.Icons>
@@ -180,25 +182,25 @@ const HouseItem = () => {
                 <Container.IconCon>
                   <Bed />
                   <Container.IconText>
-                    {`${data?.beds || 4}`} Beds
+                    {`${data?.houseDetails?.beds || 4}`} Beds
                   </Container.IconText>
                 </Container.IconCon>
                 <Container.IconCon>
                   <Bath />
                   <Container.IconText>
-                    {`${data?.bath || 5}`} Baths
+                    {`${data?.houseDetails?.bath || 5}`} Baths
                   </Container.IconText>
                 </Container.IconCon>
                 <Container.IconCon>
                   <Car />
                   <Container.IconText>
-                    {`${data?.garage || 1}`} Garage
+                    {`${data?.houseDetails?.garage || 1}`} Garage
                   </Container.IconText>
                 </Container.IconCon>
                 <Container.IconCon>
                   <Ruler />
                   <Container.IconText>
-                    {`${data?.area || 1200}`} Sq Ft
+                    {`${data?.houseDetails?.area || 1200}`} Sq Ft
                   </Container.IconText>
                 </Container.IconCon>
               </Content>
@@ -206,25 +208,25 @@ const HouseItem = () => {
                 <Container.IconCon>
                   <Bed />
                   <Container.IconText>
-                    {`${data?.beds || 4}`} Beds
+                    {`${data?.houseDetails?.beds || 4}`} Beds
                   </Container.IconText>
                 </Container.IconCon>
                 <Container.IconCon>
                   <Bath />
                   <Container.IconText>
-                    {`${data?.bath || 5}`} Baths
+                    {`${data?.houseDetails?.bath || 5}`} Baths
                   </Container.IconText>
                 </Container.IconCon>
                 <Container.IconCon>
                   <Car />
                   <Container.IconText>
-                    {`${data?.garage || 1}`} Garage
+                    {`${data?.houseDetails?.garage || 1}`} Garage
                   </Container.IconText>
                 </Container.IconCon>
                 <Container.IconCon>
                   <Ruler />
                   <Container.IconText>
-                    {`${data?.area || 1200}`} Sq Ft
+                    {`${data?.houseDetails?.area || 1200}`} Sq Ft
                   </Container.IconText>
                 </Container.IconCon>
               </Content>
@@ -232,7 +234,7 @@ const HouseItem = () => {
                 <Container.IconCon>
                   <Bed />
                   <Container.IconText>
-                    {`${data?.beds || 4}`} Beds
+                    {`${data?.houseDetails?.beds || 4}`} Beds
                   </Container.IconText>
                 </Container.IconCon>
                 <Container.IconCon>
@@ -287,7 +289,9 @@ const HouseItem = () => {
             <Wrapper.CardHeader>
               <Wrapper.User src={nouser} />
               <div>
-                <h1 className="subTitle">Darrel Steward</h1>
+                <h1 className="subTitle">
+                  {data?.user?.firstname} {data?.user?.lastname}
+                </h1>
                 <h3 className="info">(123)456-7890</h3>
               </div>
             </Wrapper.CardHeader>

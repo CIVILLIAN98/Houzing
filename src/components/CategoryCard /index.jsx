@@ -13,4 +13,3 @@ const CategoryCard = ({ onClick, data = {} }) => {
   );
 };
 export default CategoryCard;
-// adddd
